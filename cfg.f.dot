@@ -1,0 +1,17 @@
+digraph "CFG for 'f' function" {
+	label="CFG for 'f' function";
+
+	Node0x9dd1e0 [shape=record,label="{L0:\l  %t0 = alloca i32\l  %t1 = alloca i32\l  br label %L1\l}"];
+	Node0x9dd1e0 -> Node0x9eb040;
+	Node0x9eb040 [shape=record,label="{L1:                                               \l  %t2 = load i32* %t0\l  %t3 = load i32* %t1\l  %t4 = icmp sle i32 %t2, %t3\l  br i1 %t4, label %L2, label %L3\l|{<s0>T|<s1>F}}"];
+	Node0x9eb040:s0 -> Node0x9eb330;
+	Node0x9eb040:s1 -> Node0x9eb3e0;
+	Node0x9eb330 [shape=record,label="{L2:                                               \l  %t5 = load i32* %t0\l  %t6 = load i32* %t1\l  %t7 = icmp eq i32 %t5, %t6\l  br i1 %t7, label %L4, label %L5\l|{<s0>T|<s1>F}}"];
+	Node0x9eb330:s0 -> Node0x9eb740;
+	Node0x9eb330:s1 -> Node0x9ea550;
+	Node0x9eb3e0 [shape=record,label="{L3:                                               \l  ret void\l}"];
+	Node0x9eb740 [shape=record,label="{L4:                                               \l  %t8 = load i32* %t1\l  %t9 = add i32 %t8, 2\l  store i32 %t9, i32* %t1\l  br label %L5\l}"];
+	Node0x9eb740 -> Node0x9ea550;
+	Node0x9ea550 [shape=record,label="{L5:                                               \l  br label %L1\l}"];
+	Node0x9ea550 -> Node0x9eb040;
+}
